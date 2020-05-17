@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top main-menu">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand order-md-last order-0" href="/home">SHREYA<span style="color: #c5050c;">BHATIA</span></a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home_page') }}"><span class="fa fa-home fa-lg"></span>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about_page') }}"><span class="fa fa-info fa-lg"></span>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-newspaper-o fa-lg"></span>Blog</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{{ url_for('contact_page') }}"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li class="breadcrumb-item active">Contact Me</li>
+            </ol>
+        </div>
+    </div>
+    <div class="col-10 col-md" style="margin-top: 70px">
+        <form action="{{ url_for('contact_page') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group row">
+                {{ form.firstname.label(class="col-md-2 col-form-label") }}
+                <div class="col-md-6">
+                    {% if form.firstname.errors %}
+                        {{ form.firstname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.firstname.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.firstname(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+               {{ form.lastname.label(class="col-md-2 col-form-label") }}
+                <div class="col-md-6">
+                    {% if form.lastname.errors %}
+                        {{ form.lastname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.lastname.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.lastname(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                {{ form.phone.label(class="col-12 col-md-2 col-form-label") }}
+                <div class="col-md-6">
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.phone(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                {{ form.email.label(class="col-12 col-md-2 col-form-label") }}
+                <div class="col-md-6">
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                {{ form.message.label(class="col-12 col-md-2 col-form-label") }}
+                <div class="col-md-6">
+                    {% if form.message.errors %}
+                        {{ form.message(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.message.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.message(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-md-2 col-md-10">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

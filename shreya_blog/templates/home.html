@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top main-menu">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand order-md-last order-0" href="/home">SHREYA<span style="color: #c5050c;">BHATIA</span></a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="{{ url_for('home_page') }}"><span class="fa fa-home fa-lg"></span>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about_page') }}"><span class="fa fa-info fa-lg"></span>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-newspaper-o fa-lg"></span>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact_page') }}"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content" style="margin-top: 50px">
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='../static/profile_pic.png') }}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="container">
+            <h4 style="text-align:center">Welcome to my personal website!</h4>
+        </div>
+        <div class="container" style="margin-top: 50px">
+            <p style="text-align:center">
+                Hey! This is Shreya, working as a Subject Matter Expert, Proofreader and IELTS
+                Trainer. I am a young lady who is passionate for teaching the youth with her
+                innovative and creative ideas and want to reach the students with an aim of
+                taking English not as a subject, but as an important source of communicating with
+                the world in day to day aspects. I am an enthusiastic educator who believes in
+                fun-way teaching irrespective of the age and gender. My main perspective is to
+                impart creative lessons and instructions to the students to promote the goal of
+                literacy and education.
+
+                I acquired my Masters in English from MDU, completed baccalaureate from Delhi
+                University and schooling from St. Josephs’ Convent School. Apart from this, I am a
+                certified IELTS trainer from British Council and also hold diploma in TESOL/TEFL
+                from Asian College of Teachers.
+            </p>
+        </div>
+    </div>
+{% endblock content %}

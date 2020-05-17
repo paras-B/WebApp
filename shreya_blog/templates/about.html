@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header>
+         <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand order-md-last order-0" href="/home">SHREYA<span style="color: #c5050c;">BHATIA</span></a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home_page') }}"><span class="fa fa-home fa-lg"></span>Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{{ url_for('about_page') }}"><span class="fa fa-info fa-lg"></span>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-newspaper-o fa-lg"></span>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact_page') }}"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li class="breadcrumb-item active">About Me</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <p>
+        Hey! This is Shreya, working as a Subject Matter Expert, Proofreader and IELTS
+        Trainer. I am a young lady who is passionate for teaching the youth with her
+        innovative and creative ideas and want to reach the students with an aim of
+        taking English not as a subject, but as an important source of communicating with
+        the world in day to day aspects. I am an enthusiastic educator who believes in
+        fun-way teaching irrespective of the age and gender. My main perspective is to
+        impart creative lessons and instructions to the students to promote the goal of
+        literacy and education.
+        </p>
+
+        <h4>Educational Background</h4>
+        <p>
+        I acquired my Masters in English from MDU, completed baccalaureate from Delhi
+        University and schooling from St. Josephs’ Convent School. Apart from this, I am a
+        certified IELTS trainer from British Council and also hold diploma in TESOL/TEFL
+        from Asian College of Teachers.
+        </p>
+
+        <h4>
+        Need of the Hour
+        </h4>
+        <p>
+        A person must be proficient in his/her field, but the same person might be lacking
+        in few other things, and those are soft skills which is the need of the hour in this
+        competitive world. A mathematician ought to be good at numbers; a scientist for
+        sure will be skilled in playing with his numerical and chemical formulas, a
+        computer nerd must be an expert with the technology but regrettably apart from
+        a person’s specific field knowledge majority of the people lack in one of the most
+        important thing which is soft skill. Soft skill is the bunch of skills which is required
+        by a person at one or the other stage of life. From Communication Skills to a
+        person’s Personality or Presentation Skills all come under soft skill. These skills
+        interpret how well a person can deal with the situation or interact with others. In
+        this rat race, apart from the professional skills, it is these skills which are required
+        in this ambitious world. These are such skills which are required not only at work-
+        place but also in personal lives of the people. Whether you want to fix a new
+        contract or a deal in your company or you want to talk to your peers
+        communication abilities is the must, and one must never negotiate with it. Better
+        late than never! So, pull up your socks and start learning few of these skills from
+        now on.
+        </p>
+    </div>
+{% endblock content %}
