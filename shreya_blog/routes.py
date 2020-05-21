@@ -28,7 +28,7 @@ def mailFunction(body):
     msg = EmailMessage()
     msg['Subject'] = "New Query Recieved"
     msg.set_content(body)
-    msg['From'] = '1usernameismine2gmail.com'
+    msg['From'] = '1usernameismine@gmail.com'
     msg['To'] = 'parasbhatia999@gmail.com'
     # mailserver.send_message(msg)
     # mailserver.quit()
