@@ -8,25 +8,31 @@ from shreya_blog import app
 import smtplib
 from email.message import EmailMessage
 import json
+from threading import Thread
 
 
-with open('/home/paras/Desktop/shreya_bhatia/config.json') as config_file:
-    config = json.load(config_file)
-
-# Adding mailserver
-def mailFunction(body):
+def send_async_email(app, msg):
+    with open('/home/paras/Desktop/shreya_bhatia/config.json') as config_file:
+        config = json.load(config_file)
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     mailserver.ehlo()
     mailserver.starttls()
     mailserver.login('1usernameismine@gmail.com', config.get('USER_PW'))
+    with app.app_context():
+        mailserver.send_message(msg)
+        mailserver.quit()
+
+
+# Adding mailserver
+def mailFunction(body):
     msg = EmailMessage()
     msg['Subject'] = "New Query Recieved"
     msg.set_content(body)
     msg['From'] = '1usernameismine2gmail.com'
     msg['To'] = 'parasbhatia999@gmail.com'
-    mailserver.send_message(msg)
-    mailserver.quit()
-    return None
+    # mailserver.send_message(msg)
+    # mailserver.quit()
+    Thread(target=send_async_email, args=(app, msg)).start()
 
 
 @app.route('/')
